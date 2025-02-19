@@ -4,7 +4,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import Navbar from "./Navbar";
 import WelcomeMessage from "./components/WelcomeMessage";
-import Header from "./Header";
+import Header from "./components/Header";
 import Main from "./components/MainContent";
 import Footer from "./components/Footer";
 
