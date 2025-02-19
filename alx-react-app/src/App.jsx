@@ -3,7 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import Navbar from "./Navbar";
-import WelcomeMessage from "./WelcomeMessage";
+import WelcomeMessage from "./Welcome";
 
 function App() {
   return (
