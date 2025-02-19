@@ -4,11 +4,17 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import Navbar from "./Navbar";
 import WelcomeMessage from "./components/WelcomeMessage";
+import Header from "./Header";
+import Main from "./components/MainContent";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <div className="App">
       <WelcomeMessage />
+      <Header />;
+      <Main />
+      <Footer />
     </div>
   );
 
