@@ -5,7 +5,7 @@ import "./App.css";
 import Navbar from "./Navbar";
 import WelcomeMessage from "./components/WelcomeMessage";
 import Header from "./components/Header";
-import Main from "./components/MainContent";
+import MainContent from "./components/MainContent";
 import Footer from "./components/Footer";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <WelcomeMessage />
       <Header />;
-      <Main />
+      <MainContent />
       <Footer />
     </div>
   );
