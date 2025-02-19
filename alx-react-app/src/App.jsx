@@ -3,17 +3,12 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import Navbar from "./Navbar";
+import WelcomeMessage from "./WelcomeMessage";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <Navbar />
-      <Navbar />
-
-      <div className="content">
-        <h1>App component</h1>
-      </div>
+      <WelcomeMessage />
     </div>
   );
 
