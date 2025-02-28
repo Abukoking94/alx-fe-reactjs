@@ -15,7 +15,6 @@ const MainContent = () => {
         I love to visit New York, Paris, and Tokyo.
       </p>
 
-      <Counter />
     </main>
   );
 };
