@@ -1,5 +1,4 @@
-import { useRecipeStore } from "../../recipe-sharing-app/src/store/RecipeStore";
-
+import useRecipeStore from "./recipeStore";
 const SearchBar = () => {
   const setSearchTerm = useRecipeStore((state) => state.setSearchTerm);
 
@@ -7,7 +6,7 @@ const SearchBar = () => {
     <input
       type="text"
       placeholder="Search recipes..."
-      onChange={(e) => setSearchTerm(e.target.value)}
+      onChange={(event) => setSearchTerm(event.target.value)}
     />
   );
 };
