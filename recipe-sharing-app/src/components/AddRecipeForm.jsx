@@ -7,7 +7,7 @@ const AddRecipeForm = () => {
   const [title, setTitle] = useState("");
   const [description, SetDescription] = useState("");
 
-  const handlesSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     addRecipe({ id: Date.now(), title, description });
     setTitle("");
@@ -16,7 +16,7 @@ const AddRecipeForm = () => {
 
   return (
     <div>
-      <form onSubmit={handlesSubmit}>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           value={title}
