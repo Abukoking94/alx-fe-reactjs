@@ -7,6 +7,8 @@ const RegistrationForm = () => {
     password: "",
   });
 
+  const { username, email, password } = formData; // Explicitly destructuring
+
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
@@ -16,9 +18,9 @@ const RegistrationForm = () => {
 
   const validate = () => {
     let newErrors = {};
-    if (!formData.username) newErrors.username = "Username is required";
-    if (!formData.email) newErrors.email = "Email is required";
-    if (!formData.password) newErrors.password = "Password is required";
+    if (!username) newErrors.username = "Username is required";
+    if (!email) newErrors.email = "Email is required";
+    if (!password) newErrors.password = "Password is required";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -37,7 +39,7 @@ const RegistrationForm = () => {
         <input
           type="text"
           name="username"
-          value={formData.username}
+          value={username}
           onChange={handleChange}
         />
         {errors.username && <span>{errors.username}</span>}
@@ -48,7 +50,7 @@ const RegistrationForm = () => {
         <input
           type="email"
           name="email"
-          value={formData.email}
+          value={email}
           onChange={handleChange}
         />
         {errors.email && <span>{errors.email}</span>}
@@ -59,7 +61,7 @@ const RegistrationForm = () => {
         <input
           type="password"
           name="password"
-          value={formData.password}
+          value={password}
           onChange={handleChange}
         />
         {errors.password && <span>{errors.password}</span>}
