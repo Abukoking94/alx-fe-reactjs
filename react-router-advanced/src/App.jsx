@@ -5,7 +5,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import Home from "./pages/Home";
-import Profile from "./components/Profile";
+import Profile from "./pages/Profile";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Login from "./pages/Login";
@@ -19,8 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:postId" element={<BlogPost />} />
-
+        <Route path="/blog/:id" element={<BlogPost />} /> {/* Updated Route */}
         {/* Protected Route for Profile */}
         <Route
           path="/profile/*"
@@ -30,7 +29,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
