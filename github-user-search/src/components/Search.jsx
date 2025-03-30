@@ -43,7 +43,7 @@ const Search = () => {
 
       {loading && <p className="mt-4">Loading...</p>}
       {error && (
-        <p className="mt-4 text-red-500">Looks like we can't find the user</p>
+        <p className="mt-4 text-red-500">Looks like we cant find the user</p>
       )}
 
       {userData && (
