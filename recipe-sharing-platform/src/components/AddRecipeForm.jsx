@@ -4,26 +4,37 @@ const AddRecipeForm = () => {
   const [title, setTitle] = useState("");
   const [ingredients, setIngredients] = useState("");
   const [steps, setSteps] = useState("");
-  const [error, setError] = useState("");
+  const [error, setError] = useState({});
+
+  const validateForm = () => {
+    let errors = {};
+    if (!title.trim()) errors.title = "Recipe title is required.";
+    if (!ingredients.trim()) {
+      errors.ingredients = "Ingredients list is required.";
+    } else if (ingredients.split("\n").length < 2) {
+      errors.ingredients = "Please provide at least two ingredients.";
+    }
+    if (!steps.trim()) errors.steps = "Preparation steps are required.";
+    return errors;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!title || !ingredients || !steps) {
-      setError("All fields are required.");
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+      setError(validationErrors);
       return;
     }
-    if (ingredients.split("\n").length < 2) {
-      setError("Please provide at least two ingredients.");
-      return;
-    }
-    setError("");
+    setError({});
     console.log({ title, ingredients, steps });
+    setTitle("");
+    setIngredients("");
+    setSteps("");
   };
 
   return (
     <div className="container max-w-lg p-4 mx-auto">
       <h2 className="mb-4 text-2xl font-bold text-center">Add a New Recipe</h2>
-      {error && <p className="mb-2 text-red-500">{error}</p>}
       <form
         onSubmit={handleSubmit}
         className="p-6 bg-white rounded-lg shadow-md"
@@ -36,6 +47,7 @@ const AddRecipeForm = () => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
+          {error.title && <p className="text-sm text-red-500">{error.title}</p>}
         </div>
         <div className="mb-4">
           <label className="block mb-1 font-semibold">
@@ -47,6 +59,9 @@ const AddRecipeForm = () => {
             value={ingredients}
             onChange={(e) => setIngredients(e.target.value)}
           ></textarea>
+          {error.ingredients && (
+            <p className="text-sm text-red-500">{error.ingredients}</p>
+          )}
         </div>
         <div className="mb-4">
           <label className="block mb-1 font-semibold">Preparation Steps</label>
@@ -56,6 +71,7 @@ const AddRecipeForm = () => {
             value={steps}
             onChange={(e) => setSteps(e.target.value)}
           ></textarea>
+          {error.steps && <p className="text-sm text-red-500">{error.steps}</p>}
         </div>
         <button
           type="submit"
