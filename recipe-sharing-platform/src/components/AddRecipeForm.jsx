@@ -4,7 +4,7 @@ const AddRecipeForm = () => {
   const [title, setTitle] = useState("");
   const [ingredients, setIngredients] = useState("");
   const [steps, setSteps] = useState("");
-  const [error, setError] = useState({});
+  const [error, setErrors] = useState({});
 
   const validateForm = () => {
     let errors = {};
@@ -22,10 +22,10 @@ const AddRecipeForm = () => {
     e.preventDefault();
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length > 0) {
-      setError(validationErrors);
+      setErrors(validationErrors);
       return;
     }
-    setError({});
+    setErrors({});
     console.log({ title, ingredients, steps });
     setTitle("");
     setIngredients("");
